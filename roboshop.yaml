@@ -1,5 +1,5 @@
 - name: create ec2 and route r53 records
-  host: all
+  host: local
   connection: local
   vars:
     sg_id: sg-0a846283d00c08046
@@ -15,7 +15,7 @@
       instance_type: "t3.micro"
       security_group: "{{ sr_id }}"
       image_id: "{{ ami_id }}"
-      name: "{{ item }}"
+      name: "{{ item }}-{{ env}}"
       tags:
         Project: roboshop
         Component: "{{ item }}"
